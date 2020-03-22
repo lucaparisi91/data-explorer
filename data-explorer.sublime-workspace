@@ -1,0 +1,737 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fi",
+				"fig"
+			],
+			[
+				"fig",
+				"figs"
+			],
+			[
+				"psi",
+				"psi_imag"
+			],
+			[
+				"psi_",
+				"psi_real"
+			],
+			[
+				"MP",
+				"MPI_COMM_WORLD"
+			],
+			[
+				"norma",
+				"normalize"
+			],
+			[
+				"no",
+				"norm2"
+			],
+			[
+				"phi",
+				"phi_real_box"
+			],
+			[
+				"ge",
+				"geometry"
+			],
+			[
+				"tim",
+				"time"
+			],
+			[
+				"phi_rea",
+				"phi_real_old"
+			],
+			[
+				"linPoi",
+				"linPoissonImag"
+			],
+			[
+				"linP",
+				"linPoissonReal"
+			],
+			[
+				"phi_",
+				"phi_old_real"
+			],
+			[
+				"set",
+				"setMaxCoarseningLevel\tLPInfo & setMaxCoarseningLevel(int n)"
+			],
+			[
+				"state_ol",
+				"state_old_real"
+			],
+			[
+				"lap",
+				"laplacianOperatorImag"
+			],
+			[
+				"lapla",
+				"laplacianOperatorImag\tMLPoisson & laplacianOperatorImag"
+			],
+			[
+				"la",
+				"laplacianOperator"
+			],
+			[
+				"state_o",
+				"state_old_imag"
+			],
+			[
+				"state_",
+				"state_new_imag"
+			],
+			[
+				"pro",
+				"prob_lo\tconst Real * prob_lo"
+			],
+			[
+				"hiVe",
+				"hiVect\tconst int * hiVect() const"
+			],
+			[
+				"elaps",
+				"elapsed_time\tdouble elapsed_time"
+			],
+			[
+				"start",
+				"start_time"
+			],
+			[
+				"cloc",
+				"clock_t\tclock_t"
+			],
+			[
+				"phi_ima",
+				"phi_imag_old"
+			],
+			[
+				"phi_re",
+				"phi_real_old"
+			],
+			[
+				"Arra",
+				"Array4\tArray4<typename T>"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"arg",
+				"argv\tchar ** argv"
+			],
+			[
+				"PY",
+				"PY_SUFFIX"
+			],
+			[
+				"PY_",
+				"PY_FLAGS"
+			],
+			[
+				"AMRE",
+				"AMREX_LIBRARY_HOME"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 595,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "generateData.py",
+			"settings":
+			{
+				"buffer_size": 649,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scatterPlot.js",
+			"settings":
+			{
+				"buffer_size": 3701,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				],
+				[
+					"Packages/User/qmc2.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/qmc2.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"cmake",
+					""
+				],
+				[
+					"cmake",
+					"clean"
+				]
+			],
+			[
+				"cmake",
+				""
+			]
+		],
+		[
+			[
+				[
+					"cmake",
+					""
+				],
+				[
+					"cmake",
+					"make"
+				]
+			],
+			[
+				"cmake",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"contril ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				" install pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/luca/source/data-explorerer"
+	],
+	"file_history":
+	[
+		"/home/luca/source/data-explorerer/data-explorer.sublime-project",
+		"/home/luca/source/GP3/gp.sublime-project",
+		"/home/luca/source/GP3/stepper.cpp",
+		"/home/luca/source/GP3/python/test.py",
+		"/home/luca/source/GP3/stepper.h",
+		"/home/luca/source/GP3/evaluate.h",
+		"/home/luca/source/GP3/run.h",
+		"/home/luca/source/GP3/python/system.py",
+		"/home/luca/source/GP3/stencils.h",
+		"/home/luca/source/GP3/gp.py",
+		"/home/luca/source/GP3/system.py",
+		"/home/luca/source/GP3/AMReX/include/AMReX_Orientation.H",
+		"/home/luca/source/GP3/evaluate.cpp",
+		"/home/luca/software/amrex/19.01/amrex/lib/include/AMReX_BC_TYPES.H",
+		"/home/luca/source/GP3/gp.cpp",
+		"/home/luca/source/GP3/run.cpp",
+		"/home/luca/source/GP3/timer.h",
+		"/home/luca/source/GP3/geometry.h",
+		"/home/luca/software/amrex/19.01/amrex/lib/include/AMReX_LO_BCTYPES.H",
+		"/home/luca/source/GP3/test.py",
+		"/home/luca/source/GP3/AMReX/include/AMReX_Gpu.H",
+		"/home/luca/source/GP3/main.cpp",
+		"/home/luca/source/GP3/CMakeLists.txt",
+		"/home/luca/source/GP3/Makefile",
+		"/home/luca/source/GP3/traits.h",
+		"/home/luca/source/GP3/geometry.cpp",
+		"/home/luca/source/GP3/addModule.cpp",
+		"/home/luca/source/GP3/external/pybind11/include/pybind11/detail/common.h",
+		"/home/luca/source/qmc2/src/qmc2.sublime-project",
+		"/home/luca/source/qmc2/src/Makefile",
+		"/home/luca/source/qmc2/main.cpp",
+		"/home/luca/.config/sublime-text-3/Packages/User/qmc2.sublime-build",
+		"/home/luca/source/qmc2/qmc2-build.sublime-build",
+		"/home/luca/source/qmc2/src/wavefunction/billJastrowWaveFunctionOneBody.hpp",
+		"/home/luca/source/qmc2/src/wavefunction.cpp",
+		"/home/luca/source/qmc2/src/dmc.cpp",
+		"/home/luca/source/qmc2/src/main.cpp",
+		"/home/luca/source/qmc2/Makefile",
+		"/home/luca/source/qmc2/makefile"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"500"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 595,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								265,
+								265
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "generateData.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 649,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scatterPlot.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3701,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3052,
+								3052
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2160.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 155.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "cmake",
+	"project": "data-explorer.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sc",
+				"scatterPlot.js"
+			],
+			[
+				"gen",
+				"generateData.py"
+			],
+			[
+				"test",
+				"python/test.py"
+			],
+			[
+				"gp.b",
+				"gp.sublime-project"
+			],
+			[
+				"sys",
+				"python/system.py"
+			],
+			[
+				"eval",
+				"evaluate_templates/evaluate_cylindrical_template.cpp"
+			],
+			[
+				"stepper",
+				"stepper.cpp"
+			],
+			[
+				"step",
+				"stepper.cpp"
+			],
+			[
+				"stepp",
+				"stepper.cpp"
+			],
+			[
+				"gp.py",
+				"python/gp.py"
+			],
+			[
+				"gp",
+				"gp.py"
+			],
+			[
+				"stenci",
+				"stencils.h"
+			],
+			[
+				"eva",
+				"evaluate.cpp"
+			],
+			[
+				"stepper.h",
+				"stepper.h"
+			],
+			[
+				"evalua",
+				"evaluate.cpp"
+			],
+			[
+				"run.c",
+				"run.cpp"
+			],
+			[
+				"gp.",
+				"gp.sublime-project"
+			],
+			[
+				"",
+				"geometry.h"
+			],
+			[
+				"run",
+				"run.cpp"
+			],
+			[
+				"gp.c",
+				"gp.cpp"
+			],
+			[
+				"evalue",
+				"evaluate.cpp"
+			],
+			[
+				"sublim",
+				"gp.sublime-project"
+			],
+			[
+				"run.",
+				"run.cpp"
+			],
+			[
+				"geom",
+				"geometry.h"
+			],
+			[
+				"geometr",
+				"geometry.h"
+			],
+			[
+				"gp.h",
+				"AMReX/include/AMReX_Gpu.H"
+			],
+			[
+				"run.h",
+				"run.h"
+			],
+			[
+				"ma",
+				"main.cpp"
+			],
+			[
+				"cmake",
+				"CMakeLists.txt"
+			],
+			[
+				"CMake",
+				"CMakeLists.txt"
+			],
+			[
+				"main",
+				"main.cpp"
+			],
+			[
+				"subl",
+				"gp.sublime-project"
+			],
+			[
+				"make",
+				"Makefile"
+			],
+			[
+				"Make",
+				"Makefile"
+			],
+			[
+				"makef",
+				"Makefile"
+			],
+			[
+				"projec",
+				"src/qmc2.sublime-project"
+			],
+			[
+				"wavef",
+				"src/wavefunction/billJastrowWaveFunctionOneBody.hpp"
+			],
+			[
+				"dmc.cpp",
+				"src/dmc.cpp"
+			],
+			[
+				"dmc.cp",
+				"src/dmc.cpp"
+			],
+			[
+				"dmc.c",
+				"src/dmc.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 239.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
