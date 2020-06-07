@@ -1,179 +1,348 @@
-var last_index=0
 
- function figure(width_,height_)
+data= { "x" : [0.0,0.2,0.6,0.9] , "y" : [0.0,0.23,0.39,0.6]     }
+
+data["z"]=data["y"].map((y) => y**2);
+
+
+class figure
 {
-	var width = width_
-	var height= height_
-	var padding = [30,20,20,20]
-	var json_data = {}
-	var svg= {}
-	var scaleX
-	var scaleY
-	var xAxis
-	var yAxis
-	var dot= {"r": 2}
-	var index
- 	this.color = function(){return "red"}
- 	this.data = function(data_)
- 	{
- 		json_data=data_
- 		color = d3.scaleOrdinal()
-  			.domain(json_data["labels"])
-  			.range(d3.schemeSet2);
- 	}
+    constructor(element)
+    {
+	this.rootElement=element;
+	this.svg=element.append("svg").attr("width","100%");
+	this.svg.attr("height","100%");
+	this.xAxes=[];
+	this.yAxes=[];
 
- 	this.makeScatterPlot = function()
-		{	
-			dataset=json_data["data"]
+	
+	const box = this.rootElement.node().getBoundingClientRect();
+	this.width=box.width;
+	this.height=box.height;
+	this.padding=[10,10,40,30];
+	
+	
+    }
 
-			index=last_index + 1
-			last_index=index
-  		//var color=function(label) {return "red"}
-			svg=d3.select("body")
-				.append("svg")
-				.attr("width",width)
-				.attr("height",height)
-				.attr("id",index)
-			svg.append("clipPath")
-  				.attr("id", "mask")
-  				.style("pointer-events", "none")
-    			.append("rect")
-    			.attr("x",padding[0])
-      			.attr("y",padding[2])
-      			.attr("width",width-padding[1]-padding[0])
-      			.attr("height", height - padding[2]-padding[3])
+ 
 
-    	
-    	var minx = d3.min(dataset,function(d){return d[0]} )
-    	var maxx=d3.max(dataset,function(d){return d[0]})
-    	var step=(maxx - minx)/10.
+    createScaleAxis(axConfig)
+    {
+	const minx = axConfig["min"];
+	const maxx = axConfig["max"];
+	const ax = axConfig["ax"];
 
-    	d3.select("#minx").attr("value",minx).attr("step",step)
-    	d3.select("#maxx").attr("value",maxx).attr("step",step)
-
-		scaleX=d3.scaleLinear().domain([
-			minx,
-			maxx
-			]).range([padding[0],width-padding[1]])
-
-		var miny=d3.min(dataset,function(d){return d[1]} )
-    	var maxy=d3.max(dataset,function(d){return d[1]})
-    	var stepy=(maxy-miny)/10.
-
-    	d3.select("#miny").attr("value",miny).attr("step",stepy)
-    	d3.select("#maxy").attr("value",maxy).attr("step",stepy)
-
-
-		 scaleY=d3.scaleLinear().domain([
-			miny,maxy
-			]).range([height-padding[2],padding[3]])
-
-		svg.append("g")
-			.attr("class","dataPoints")
-			.attr("clip-path", "url(#mask)")
-			.selectAll("circle")
-	    	.data(dataset)
-	    	.enter()
-	    	.append("circle")
-
-				.attr("cx",function(d){return scaleX(d[0])})
-				.attr("cy",function(d){return scaleY(d[1])})
-				.attr("r",dot["r"])
-				.attr("fill",function(d){return color(d[2])})
-
-	xAxis=d3.axisBottom(scaleX)
-	yAxis=d3.axisLeft(scaleY)
-
-	svg.append("g").
-		attr("class","x axis")
-		.attr("transform","translate(0,"+(height-padding[2]) + ")")
-		.call(xAxis)
-	svg.append("g")
-		.attr("class","y axis")
-		.attr("transform","translate("+(padding[0]) + ",0)")
-		.call(yAxis)
-	return svg
-}
-
-this.rescaleAxis=function(minX,maxX,axis)
-{
-	var dataPoints=svg.selectAll("circle")
-	var scale=d3.scaleLinear()
-			.domain( [minX,maxX])
-	if (axis=="x")
+	let mappedMin;
+	let mappedMax;
+	let axisObject;
+	
+	if (ax == "x")
 	{
-			scale.range([padding[0],width-padding[1]])
+	
+	    mappedMin = this.padding[3];
+	    mappedMax = this.width - this.padding[1] ;
 	}
-	else if (axis=="y")
+	else if (ax == "y")
 	{
-			scale.range([height-padding[2],padding[3]])
+	    mappedMin = this.height - this.padding[2];
+	    mappedMax = this.padding[0];
 	}
+	
+	const scale = d3.scaleLinear()
+	      .domain([minx,maxx])
+	      .range([mappedMin,mappedMax]);
 
-	var axis;
-	var idx;
-	if (axis=="x")
+	return scale;
+    }
+
+    
+    createAxis(axConfig)
+    {
+	
+	const that = this;
+	
+	const update=function(axConfig)
 	{
-		axis=d3.axisBottom(scale)
-		positionSelector="cx"
-		axisSelector=".x.axis"
-		idx=0
-		xAxis=axis
-		scaleX=scale
-	}
-	else if(axis=="y")
-	{
-		axis=d3.axisLeft(scale)
-		positionSelector="cy"
-		axisSelector=".y.axis"
-		idx=1
-		yAxis=axis
-		scaleY=scale
-	}
-
-	dataPoints.attr(positionSelector,function(d){return scale(d[idx])})
-	svg.select(axisSelector).call(axis)
-
-
-}
-
-
-}
-
-var figs=[]
-d3.json("plot.json").then(
-	function(json_data)
-	{
-		var fig= new figure(500,200)
-		fig.data(json_data)
-		fig.makeScatterPlot()
-		figs.push(fig)
-
-		var fig2= new figure(500,200)
-		fig2.data(json_data)
-		fig2.makeScatterPlot()
-		figs.push(fig2)
-
+	    if (! ( "ax" in axConfig) )
+	    {
+		axConfig.ax=this.ax;
+	    }
+	    const scale=that.createScaleAxis(axConfig)
+	    
+	    let xOffset,yOffest;
 		
-	})
+	    if (this.ax === "x")
+	    {
+		this.axis=d3.axisBottom(scale);
+		
+		
+		xOffset=0;
+		yOffest=that.height - that.padding[2] 
+		
+	    }
+	    else if (this.ax === "y")
+	    {
+		this.axis = d3.axisLeft(scale);
+		xOffset=that.padding[3];
+		yOffest=0;
+	    }
+	    
+	    this.artist.attr("class",this.ax + " axis")
+		.attr("transform","translate(" + xOffset + ","+ yOffest+ ")");
+	    
+	    this.artist.call(this.axis);
+	}
+	
+	const artist = this.svg.append("g")
+	
+	const axisObject={artist: artist,"ax":axConfig.ax,update: update}
+	axisObject.update(axConfig);
+	
+	return axisObject;
+	
+    }
+    
+    addAxis(axConfig)
+    {
+	const axis = this.createAxis(axConfig);
 
-d3.selectAll('#maxx,#minx')
-  .on('change', function() {
-    var minx = eval(d3.select("#minx").property('value'));
-    var maxx= eval(d3.select("#maxx").property('value'));
-    console.log([minx,maxx])
-    for (i=0;i<figs.length;i++)
-    	{
-    		figs[i].rescaleAxis(minx,maxx,"x")
-   		}
-    })
+	if (axis.ax == "x")
+	{
+	    this.xAxes.push(axis);
+	}
+	else if (axis.ax == "y")
+	{
+	    this.yAxes.push(axis);
+	}
 
- d3.selectAll('#maxy,#miny')
-    .on('change', function() {
-      var miny = eval(d3.select("#miny").property('value'));
-      var maxy= eval(d3.select("#maxy").property('value'));
-      console.log([miny,maxy])
-      for(i=0;i<figs.length;i++)
-      	{
-      		figs[i].rescaleAxis(miny,maxy,"y")
-      	}
-      })
+	return this;
+    }
+    
+}
+
+    
+
+class scatterPlot
+{
+    constructor(figure,label)
+    {
+	this.figure=figure
+	this.xAxis=figure.xAxes[0];
+	this.yAxis=figure.yAxes[0];
+	
+	this.svg=this.figure.svg;
+	this.radius=5;
+	this.color="red";
+	this.label=label;
+	const element=this.figure.svg.append("g").attr("class",label);
+	element.append("path").attr("class","line");
+
+	const xGridElements=this.xAxis.artist.append("g").attr("class","grid");
+	const yGridElements=this.yAxis.artist.append("g").attr("class","grid");
+	
+	
+    }
+
+    subRePlot()
+    {
+	this.plot(this.data,this.xColumn,this.yColumn)
+    }
+
+    rePlot()
+    {
+	if (this.parentPlot != undefined)
+	{
+	    this.parentPlot.rePlot();
+	}
+	else
+	{
+	    this.subReplot()
+	}
+    }
+    
+
+    
+    xrange(minx,maxx)
+    {
+	this.xAxis.update({"min":minx  ,"max":maxx,"scale" : "linear"} )
+    }
+
+    yrange(minx,maxx)
+    {
+	this.yAxis.update({"min":minx  ,"max":maxx,"scale" : "linear"} )
+    }
+
+
+    
+    plotLines(data,xColum,yColumn)
+    {
+	const scaleX = this.xAxis.axis.scale();
+	const scaleY = this.yAxis.axis.scale();
+	
+	const line = d3.line()
+	      .x( (d)  => scaleX(d[0]) )
+	      .y( (d) => scaleY(d[1] ))
+	      .curve(d3.curveCardinal);
+	
+	const element=this.svg.select("g."+this.label).select("path");
+	
+	element
+	    .attr("d", 	line(d3.zip(data[xColum],data[yColumn])) )
+	    .attr("stroke", this.color)
+            .attr("stroke-width", 2)
+            .attr("fill", "none");
+	
+    }
+
+    
+    plot(data,xColumn,yColumn)
+    {
+	this.xColumn = xColumn;
+	this.data=data;
+	this.yColumn=yColumn;
+
+
+	
+	const x= data[xColumn];
+	const y = data[yColumn]
+	
+	const scaleX = this.xAxis.axis.scale();
+	const scaleY = this.yAxis.axis.scale();
+
+	const element=this.svg.select("g."+this.label);
+	
+	element.selectAll("circle").data(x).enter()
+	    .append("circle");
+	
+	element.selectAll("circle").data(x)
+	    .attr("cx", function(d) {return scaleX(d) } )
+	    .attr("r", this.radius)
+	    .attr("fill",this.color);
+	
+	element.selectAll("circle").data(y)
+	    .attr("cy",function(d) {return scaleY(d)})
+
+	if (this.lines != undefined )
+	{
+	    this.plotLines(data,xColumn,yColumn);
+	}
+    }
+
+    
+    
+    makeGrid(displayAxes=["x","y"])
+    {
+	const xArtist=this.xAxis.artist;
+	const yArtist=this.yAxis.artist;
+	
+	const xticks = this.xAxis.axis.scale().ticks();
+	const yticks = this.yAxis.axis.scale().ticks();
+	
+	const scaleY = this.yAxis.axis.scale();
+	const scaleX = this.xAxis.axis.scale();
+	
+	const xGridElements=xArtist.select("g.grid");
+	const yGridElements=yArtist.select("g.grid");
+	
+	
+	xGridElements.selectAll("line").data(xticks).enter().append("line");
+	yGridElements.selectAll("line").data(yticks).enter().append("line");
+	
+	if ( displayAxes.includes("x") )
+	{
+	    xGridElements.selectAll("line")
+		.data(xticks)
+		.attr("x1",(d) => scaleX(d))
+		.attr("y1",(d) => 0)
+		.attr("x2",(d) => scaleX(d))
+		.attr("y2",(d) => -( this.figure.height - this.figure.padding[0] - this.figure.padding[2] ) )
+		.attr("style","stroke:lightgray;stroke-width:2");
+	}
+
+	if ( displayAxes.includes("y") )
+	{
+
+	    yGridElements.selectAll("line")
+		.data(yticks)
+		.attr("x1",(d) => 0 )
+		.attr("y1",(d) => scaleY(d) )
+		.attr("y2",(d) => scaleY(d) )
+		.attr("x2",(d) => ( this.figure.width - this.figure.padding[1] - this.figure.padding[3] ) )
+		.attr("style","stroke:lightgray;stroke-width:2");
+	}
+	
+	
+	
+
+	
+	
+    }
+    
+}
+
+
+class Plot
+{
+    constructor(figure)
+    {
+	this.figure=figure;
+	this.plots=Array(0);	
+    }
+
+    
+    scatterPlot(label)
+    {
+	const plot = new scatterPlot(this.figure,label);
+	
+	this.plots.push( plot  );
+	
+	return plot;
+	
+    }
+    
+    rePlot()
+    {
+	for (let plot of this.plots)
+	{
+	    plot.subRePlot();
+	}
+    }
+}
+
+
+const fig = new figure(d3.select("#scatterPlotContainer") );
+fig.addAxis({"min":0,"max":1,"ax":"x","scale" : "linear"});
+fig.addAxis({"min":0,"max":1,"ax":"y","scale" : "linear"});
+
+const plot = new Plot(fig)
+
+const plot1 = plot.scatterPlot("plot1");
+const plot2 = plot.scatterPlot("plot2");
+
+
+plot2.color="blue";
+plot1.yrange(0,1);
+
+plot1.plot(data,"x","y");
+plot2.plot(data,"x","z");
+
+plot1.yrange(0,0.6);
+
+
+plot1.lines=true;
+plot2.lines=true;
+
+plot.rePlot();
+plot1.makeGrid();
+
+
+
+
+
+//fig.xAxes[0].update({"min":0,"max":2,"scale" : "linear"});
+
+
+
+//data["y"]=data["y"].map( (y) => y);
+//plot2.plot(data,"x","y");
+
+//fig.xAxes[0].update({"min":0  ,"max":0.8,"scale" : "linear"} )

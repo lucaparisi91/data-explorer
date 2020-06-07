@@ -1,0 +1,42 @@
+#testTable
+{
+    border: 1px solid black;
+}
+
+
+#testTable table
+{
+    width: 100%;
+    display:block;
+    border: 0px;
+    border-collapse: collapse;
+   
+}
+
+#testTable td,th
+{
+    border: solid 1px black;
+}
+
+#testTable td,th:first-child
+{
+    border-left: none;
+}
+#testTable td:last-child,th:last-child
+{
+    border-right: none;
+}
+
+#testTable thead th
+{
+    
+    width: 20em;
+    background-color: brown;
+    color: white;
+    
+}
+
+#testTable tbody tr:nth-child(even)
+{
+    background-color: silver;
+}
