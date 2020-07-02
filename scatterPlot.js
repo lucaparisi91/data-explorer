@@ -1,5 +1,5 @@
 
-data= { "x" : [0.0,0.2,0.6,0.9] , "y" : [0.0,0.23,0.39,0.6]     }
+const data= { "x" : [0.0,0.2,0.6,0.9] , "y" : [0.0,0.23,0.39,0.6]     }
 
 data["z"]=data["y"].map((y) => y**2);
 
@@ -225,6 +225,7 @@ class scatterPlot
 	{
 	    this.plotLines(data,xColumn,yColumn);
 	}
+	
     }
 
     
@@ -306,6 +307,14 @@ class Plot
 	    plot.subRePlot();
 	}
     }
+
+    xrange(minx,maxx)
+    {
+	if ( this.plots.length > 0)
+	{
+	    this.plots[0].xrange(minx,maxx);
+	}
+    }
 }
 
 
@@ -325,8 +334,7 @@ plot1.yrange(0,1);
 plot1.plot(data,"x","y");
 plot2.plot(data,"x","z");
 
-plot1.yrange(0,0.6);
-
+plot1.yrange(0,1.);
 
 plot1.lines=true;
 plot2.lines=true;
@@ -335,6 +343,47 @@ plot.rePlot();
 plot1.makeGrid();
 
 
+class RangeControl extends React.Component
+{
+    constructor(props)
+    {
+	
+	super(props)
+	this.state={data : props.data, plot : props.plot}
+	
+	this.state.maxx=1.;
+	this.onXrangeChange=this.onXrangeChange.bind(this);
+	
+    }
+
+    onXrangeChange(event)
+    {
+	let maxx=event.target.value;
+	this.state.plot.xrange(0,event.target.value);
+	this.state.plot.rePlot()
+	this.setState({ maxx:maxx})
+	
+    }
+    
+    render()
+    {
+	return (
+		<div>
+		xrange:  <input type="range" min="0" max="1"  step="0.01" value={this.state.maxx} onChange={this.onXrangeChange} />
+		0 - {this.state.maxx}
+		</div>
+	)
+	    
+    }
+
+    
+
+    
+}
+
+
+const domContainer = document.querySelector("#scatterPlotControl");
+ReactDOM.render( <RangeControl data={data} plot={plot} />  , domContainer);
 
 
 
