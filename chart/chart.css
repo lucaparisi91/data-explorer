@@ -1,0 +1,61 @@
+.plotContainer
+{
+    border : 0px dashed gray;
+    
+}
+
+.axis
+{
+    stroke: black;
+    stroke-width: 1
+}
+
+.plotArea
+{
+    fill : white;
+    
+}
+
+circle
+{
+    fill : rgb(82, 117, 233);
+}
+
+.axisControl
+{
+    width: 500px;
+    border: dashed 1px gray;
+    padding-left: 10px;
+
+}
+
+dl
+{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+
+}
+
+dt
+{
+    grid-column: 1/ 2;
+}
+
+dd
+{
+    grid-column: 2/2;
+}
+
+.hilightBox
+{
+    fill-opacity : 0.4;
+    fill: skyblue;
+    border: 2px dashed blue;
+}
+
+.inner 
+{
+    stroke-width:  1;
+    stroke-opacity: 0.2;
+    stroke-dasharray: 5,5;
+}

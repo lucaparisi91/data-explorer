@@ -12,7 +12,6 @@ import pandas as pd
 import io
 import urllib
 
-
 def toArray(x):
     xn = np.asarray([x]) if np.isscalar(x) else np.asarray(x)
     return xn
